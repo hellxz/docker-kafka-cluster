@@ -1,0 +1,10 @@
+version: "3"
+services:
+    kafka-manager:
+        image: hlebalbau/kafka-manager:stable
+        container_name: kafka-manager
+        ports:
+            - "19000:9000"
+        environment:
+            ZK_HOSTS: ${ZOO_SERVERS}
+            APPLICATION_SECRET: "admin"

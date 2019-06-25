@@ -1,0 +1,14 @@
+version: "3"
+services:
+    kafka-1:
+        image: wurstmeister/kafka:2.12-2.1.1
+        restart: always
+        container_name: kafka-1
+        environment:
+            - KAFKA_BROKER_ID=1
+            - KAFKA_LISTENERS=PLAINTEXT://kafka1:9092
+            - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka1:9092
+            - KAFKA_ZOOKEEPER_CONNECT=${ZOO_SERVERS}
+            - KAFKA_MESSAGE_MAX_BYTES=2000000
+            #- KAFKA_CREATE_TOPICS=${KAFKA_BOOTSTRAP_CREATE_TOPICS}
+        network_mode: "host"
