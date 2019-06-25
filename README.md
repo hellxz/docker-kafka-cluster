@@ -54,6 +54,8 @@ services:
 
 > `KAFKA_CREATE_TOPICS`使用官方说明：`Topic 1` will have 1 partition and 3 replicas, `Topic 2` will have 1 partition, 1 replica and a `cleanup.policy` set to `compact`. 文档地址：<https://hub.docker.com/r/wurstmeister/kafka>
 
+
+
 ## 使用说明
 
 1. 使用前确保各主机可以互相ping通
@@ -64,7 +66,7 @@ services:
 
 4. 复制kafka-01到第一台主机、复制kafka-02到第二台主机、复制kafka-03到第三台主机
 
-5. 确保这几台主机对应的占用端口号不被占用 `kafka-01对应9092`、 `kafka-02对应9093`、` kafka-03对应9094`
+   1. 确保这几台主机对应的占用端口号不被占用 `kafka-01对应9092`、 `kafka-02对应9093`、` kafka-03对应9094`、`kafka-manager对应19000`
 
 6. 分别对每一台kafka-0x所在的主机修改`/etc/hosts`，例
 
@@ -76,5 +78,7 @@ services:
 
    > 其中每个主机只需要设置自己的主机上的host，比如我复制了`kafka-01`我就写`本机ip	kafka1` ,依次类推.
 
-7. 单台主机部署kafka集群请为`docker-kafka-cluster-up.sh`与`docker-kafka-cluster-down.sh`授执行权，不要移动目录，通过这两个shell脚本来启动项目；多台主机请手动进入`kafka-0x`目录下，执行`docker-compose up -d`以后台启动，执行`docker-compose down`以移除容器
+6. 单台主机部署kafka集群请为`docker-kafka-cluster-up.sh`与`docker-kafka-cluster-down.sh`授执行权，不要移动目录，通过这两个shell脚本来启动项目；多台主机请手动进入`kafka-0x`目录下，执行`docker-compose up -d`以后台启动，执行`docker-compose down`以移除容器
+
+7. 启动脚本中没有启动`kafka-manager`，有需要请自行启动。
 
