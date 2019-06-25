@@ -21,6 +21,15 @@ Zookeeper容器的虚拟化集群，使用Docker-compose构建，通过主机网
     └── .env
 ```
 
+### 各节点说明
+
+| 节点目录名    | 容器名        | 占用端口 |
+| ------------- | ------------- | -------- |
+| kafka-01      | kafka-1       | 9092     |
+| kafka-02      | kafka-2       | 9093     |
+| kafka-03      | kafka-3       | 9094     |
+| kafka-manager | kafka-manager | 19000    |
+
 ### 文件说明
 
 以`kafka-01`目录举例
